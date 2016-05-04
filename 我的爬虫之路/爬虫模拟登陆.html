@@ -1,0 +1,759 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+
+"http://www.w3.org/TR/html4/strict.dtd">
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+
+
+  <head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <!-- 设置浏览器不缓存 -->
+
+    <META HTTP-EQUIV="pragma" CONTENT="no-cache"> 
+
+    <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
+
+    <META HTTP-EQUIV="expires" CONTENT="0">
+
+    
+
+    <title>HUB系统 华中科技大学教学信息服务平台</title>
+
+    <meta name="keywords" content="" />
+
+    <meta name="description" content="" />
+
+    <link href="css/main.css" rel="stylesheet" />
+
+    <!--[if lte IE 6]>
+
+      <link href="css/ie.css" rel="stylesheet" />
+
+        <![endif]-->
+
+        <style type="text/css">
+
+          .pcolor{
+
+        color:#999;
+
+      }
+
+      
+
+      .book_6 {
+
+          width: 126px;
+
+          height: 46px;
+
+          text-align: center;
+
+          margin: 0 auto;
+
+          line-height: 46px;
+
+          margin-right:100px;
+
+          margin-top: 10px;
+
+          background-image: url(../images/bg-test1.png);
+
+          background-repeat: no-repeat;
+
+      }
+
+      
+
+       .book_6 a {
+
+           color:#1f69ac;
+
+          font-size: 18px;
+
+          display: block;
+
+       }
+
+       .book_6 :hover {
+
+          background-image: url("../images/bg-test2.png");
+
+          background-repeat: no-repeat;
+
+          cursor: pointer;
+
+      }
+
+       .book_2 {
+
+          margin-top: 60px;
+
+          padding: 0 20px;
+
+      }
+
+        </style>
+
+        
+
+        <script src="/js/jquery-1.7.2.min.js" type="text/javascript"></script>
+
+        <script type="text/javascript" src="/js/jquery.base64.js"></script>
+
+        <script type="text/javascript">
+
+      if(window != top)
+
+      top.location.href = location.href;
+
+      
+
+      $(function(){
+
+        bgi_resize(40,1080,1920);
+
+        
+
+        //获取bgi图片
+
+        var v = parseInt(2*Math.random())+1;
+
+        var img_src = "/images/login-"+v+".jpg";
+
+        $("#bgi").attr("src",img_src);
+
+        $("body").css("background-color","#FFFFFF");
+
+        
+
+        /*
+
+        if(v==1){
+
+          $("body").css("background-color","#B7A79A");
+
+          $("#psdd").text("华中科技大学东三区");
+
+        }else if(v==2){
+
+          $("body").css("background-color","#303030");
+
+          $("#psdd").text("华中科技大学青年园");
+
+        }else if(v==3){
+
+          $("body").css("background-color","#9C5333");
+
+          $("#psdd").text("华中科技大学青年园");
+
+        }else if(v==4){
+
+          $("body").css("background-color","#D0D0D0");
+
+          $("#psdd").text("华中科技大学喻园小区");
+
+        }*/
+
+        
+
+        
+
+        
+
+        document.onkeydown = function(e){ 
+
+            var ev = document.all ? window.event : e;
+
+            if(ev.keyCode==13) {
+
+                 $('#form1').submit();
+
+            }
+
+        }
+
+    
+
+        $("#user_t").focus(function(){
+
+          $(this).hide();
+
+          $("#username").show();
+
+          $("#username").focus();
+
+        });
+
+        
+
+        $("#username").blur(function(){
+
+          var v = $(this).val();
+
+          if(v==""){
+
+            $(this).hide();
+
+            $("#user_t").show();
+
+          }else{
+
+            $("#msg").hide();
+
+          }
+
+        })
+
+        
+
+        $("#pwd_t").focus(function(){
+
+          $(this).hide();
+
+          $("#password").show();
+
+          $("#password").focus();
+
+        })
+
+        
+
+        $("#password").blur(function(){
+
+          var v = $(this).val();
+
+          if(v==""){
+
+            $(this).hide();
+
+            $("#pwd_t").show();
+
+          }
+
+        })
+
+        
+
+        /*
+
+        $("input[name='usertype']").click(function(){
+
+          var usertype = "";
+
+          $("input[name='usertype']").each(function(){
+
+            if($(this).attr("checked")==true){
+
+              usertype = $(this).val();
+
+            }
+
+          })
+
+          
+
+          if(usertype=="jg"){
+
+            $("#user_t").val("请输入用户名(请使用7位教工编号)");
+
+          }else{
+
+            $("#user_t").val("请输入用户名(Username)");
+
+          }
+
+        })
+
+        */
+
+        
+
+        
+
+        
+
+        /*
+
+        $("input:text").focus(function(){
+
+          $(this).css("background-color","#DAEDFC");
+
+        })
+
+        
+
+        $("input:text").blur(function(){
+
+          $(this).css("background-color","");
+
+        })
+
+        
+
+        $("input:password").focus(function(){
+
+          $(this).css("background-color","#DAEDFC");
+
+        })
+
+        
+
+        $("input:password").blur(function(){
+
+          $(this).css("background-color","");
+
+        })
+
+        */
+
+        
+
+        $("input[name='password']").blur(function(){
+
+          var v = $(this).val();
+
+          if(v==""){
+
+            $("#mm_span").text("请输入密码(Password)");
+
+          }else{
+
+            $("#mm_span").text("");
+
+          }
+
+        })
+
+        
+
+        $("#form1").submit(function(){
+
+          /*
+
+          var usertype = "";
+
+          $("input[name='usertype']").each(function(){
+
+            if($(this).attr("checked")==true){
+
+              usertype = $(this).val();
+
+            }
+
+          })
+
+          
+
+          if(usertype==""){
+
+            alert("请选择您的身份类型");
+
+            return false;
+
+          }
+
+          
+
+          if(usertype!="xs"&&usertype!="jg"&&usertype!="uid"){
+
+            alert("请选择有效的身份类型");
+
+            return false;
+
+          }
+
+          */
+
+        
+
+          var username = $("input[name='username']").val();
+
+          if(username==""){
+
+            alert("请输入学号/手机/邮箱(ID/Phone/Email)");
+
+            $("input[name='username']").focus();
+
+            return false;
+
+          }
+
+          
+
+          var reg=/^[A-Za-z0-9]+$/;
+
+          if(!reg.test(username)){
+
+              var reg2 = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/; //邮箱格式
+
+              if(!reg2.test(username)){
+
+                alert("请输入有效的学号/手机/邮箱(ID/Phone/Email)");
+
+              $("input[name='username']").focus();
+
+              return false;
+
+              }
+
+          }
+
+          
+
+          var password = $("input[name='password']").val();
+
+          if(password==""){
+
+            alert("请输入用户密码(Password)");
+
+            $("input[name='password']").focus();
+
+            return false;
+
+          }
+
+          
+
+          
+
+          
+
+          $("input[name='password']").val($.base64.encode(password));
+
+        })
+
+      })
+
+      
+
+      function getrandomImg(username){
+
+        var date = new Date().getTime();
+
+        $.getJSON("/randomKey.action?username="+username+"&time="+date,function(msg){
+
+                 var url = "/randomImage.action?k1="+msg[0]+"&k2="+msg[1]+"&uno="+username+"&time="+date;
+
+                 $("#key1").val(msg[0]);
+
+                 $("#key2").val(msg[1]);
+
+             $("#random_img").attr("src",url);
+
+             $("#yzm_msg").hide();
+
+             $("#yzm_tr").show();
+
+         })
+
+      }
+
+      
+
+      $(window).resize(function(){
+
+        bgi_resize(40,1080,1920);
+
+      });
+
+    </script>
+
+  </head>
+
+
+
+  <body style="position: relative;">
+
+    <!-- header -->
+
+    <div class="header">
+
+      <div class="headerb">
+
+        <div class="logo"></div>
+
+        <div class="headern">
+
+          华中科技大学教学信息服务平台（HUB系统）
+
+        </div>
+
+
+
+      </div>
+
+    </div>
+
+    <!-- header end -->
+
+
+
+    <!-- body -->
+
+    <form action="/hublogin.action" name="form1" id="form1" method="post">
+
+      <div class="logins">
+
+                       <!-- 
+
+        <div class="login-t" style=" background-image: url(images/login-b.png);background-repeat: no-repeat;z-index: 15;width: 350px;height: 400px;display: none;">
+
+          <div class="book_2">
+
+                      <div class="title">
+
+                          <span style="font-size: 18px;">201601期封面学子：</span><br>
+
+                          <span style="font-size: 28px; margin-top:10px;">刘倩</span>
+
+                      </div>
+
+                      <div class="txt">
+
+                        公共卫生学院2013级硕士生
+
+                        <br/>亚运会优秀志愿者，三好研究生
+
+                          <br>
+
+                          <b style="line-height: 30px;font-size: 18px;">人生格言：<br/>失之坦然，得之淡然，争之必然。</b>
+
+              <p style="font-size: 15px;cursor: pointer;" id="rwjj">点击查看人物简介</p>
+
+                      </div>
+
+                      
+
+                      <div class="book_6" id="go_cover">
+
+                          <a href="#">我要上封面</a>
+
+                      </div>
+
+                       
+
+                       <div class="txt">
+
+                         第十四届“挑战杯”中航工业全国大学生课外学术科技作品竞赛在广东工业大学举行。
+
+                         决赛中，我校斩获全省唯一一个特等奖，以优异成绩捧得“优胜杯”，这也是在历届挑战杯竞赛中，我校第13次捧杯。
+
+                       </div>
+
+                  </div>
+
+        </div>
+
+                       -->
+
+        
+
+        <!-- 
+
+        <div style="position: fixed;left: 20px;bottom: 50px;color: #fff;" id="psdd"></div>
+
+        -->
+
+        <div style="position: fixed;left: 45%;bottom: 50px;width: 130px;">
+
+          <div class="book_6" id="go_cover">
+
+                        <a href="#">我要上封面</a>
+
+                    </div>
+
+        </div>
+
+        
+
+        
+
+        <div class="login-b">
+
+          <div class="login-i" style="margin-top: 105px;">
+
+             
+
+              <input type="text" id="user_t"
+
+              value="学号/手机/邮箱(ID/Phone/Email)" 
+
+              tabindex="2" style="color:#999;"/>
+
+              <input type="text" id="username" name="username" style="display: none;" tabindex="2"/>
+
+            
+
+          </div>
+
+          <div class="login-i" style="margin-top:16px;">
+
+            <input type="text" style="color:#999;" id="pwd_t" value="请输入密码(Password)" tabindex="3"/>
+
+            <input type="password" id="password" name="password" style="display: none;" tabindex="3"/>
+
+          </div>
+
+  
+
+          
+
+            
+
+          <input type="hidden" name="ln" value="app42.dc.hust.edu.cn"/>
+
+          
+
+          
+
+            
+
+          <div class="login-bn" onclick="$('#form1').submit();">登 录 sign in</div>
+
+          <div class="login-a" id="login-a">
+
+            <label for="login1" class="login1" style="font-size: 12px">
+
+              <a href="http://hub.hust.edu.cn/auth/maintenceAccSec/retrievePassword.jsp" target="_blank" style="color: #FFFFFF;">忘记密码？Forgot Password?</a>
+
+            </label>
+
+            <br/>
+
+            <label for="login1" class="login1" style="font-size: 12px;">
+
+              <a href="http://register.hust.edu.cn/secret/freshManChoose.jsp" target="_blank" style="color: #FFFFFF;">新用户获取密码 New users get the password</a>
+
+            </label>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </form>
+
+    
+
+    <div class="xtx" style="display: none;"><img src="images/xintongxue.png" ></div>
+
+    <div class="login-footer">
+
+      <div class="footer">地址：湖北省武汉市洪山区珞喻路1037号　邮政编码：430074　电话：027-87540900　<span>&copy 2006-2016　华中科技大学注册中心</span>
+
+      </div>
+
+    </div>
+
+    <!-- body end -->
+
+    <div class="bodyb lg-bodyb">
+
+      <img src="" id="bgi">
+
+    </div>
+
+    
+
+    <!-- 
+
+    <a href="#" class="d-page-1-mousetip" style="width:100px;color:#975B26;font-size:13px;" id="go_cover">我要上封面</a>
+
+     -->
+
+    
+
+    <!--<img class="d-page-1-mousetip d-amt-opacityflash" src="images/mousetip.png">-->
+
+    <script src="/js/main.js?randomId=1461219995812" type="text/javascript"></script>
+
+    <div class="mask" style="z-index:999"></div>
+
+    <div class="pay2" style="width: 650px;height: 435px;position: absolute;left:50%;margin-left:-330px;top: -600px;z-index: 1000;background: #e8e8e8;border-radius: 6px;">
+
+      <div class="news-top">
+
+        <span class="gb pointer gb-new"></span>
+
+      </div>
+
+
+
+      <div class="news-body news-bodys" style="display: block;height: 380px;position: relative">
+
+        <div style="margin: 10px;">
+
+          <p style="line-height: 30px;margin: 10px;">不管你是男生还是女生，只要你有兴趣，有条件，认为自己能够代表华中大学子的风采，就有机会登上HUB系统首页成为HUB封面人物。<br/>快来报名吧！</p>
+
+          <p style="line-height: 30px;margin: 10px;">
+
+            报名条件：<br/>
+
+            1. 个人加权平均成绩在专业排名前30%，或具有其他突出成绩；<br/>
+
+            2. 形象积极、阳光、向上，具有较好气质。
+
+          </p>
+
+          <p style="line-height: 30px;margin: 10px;">
+
+            报名要求：<br/>
+
+            1. 登录系统后，点击轮播图片中“我要上封面”即可报名；<br/>
+
+            2. 在报名界面填写个人简介，并上传个人高清照片（照片尺寸不小于1920*1080像素）。
+
+          </p>
+
+          <p style="line-height: 30px;margin: 10px;">
+
+            还在等什么，期待你的荣耀登场。
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    
+
+    <div class="rwjj_div" style="width: 650px;height: 435px;position: absolute;left:50%;margin-left:-330px;top: -600px;z-index: 1000;background: #e8e8e8;border-radius: 6px;">
+
+      <div class="news-top">
+
+        <span style="float:left;">本期封面学子人物简介</span>
+
+        <span class="gb pointer gb-new"></span>
+
+      </div>
+
+
+
+      <div class="news-body news-bodys" style="display: block;height: 380px;position: relative;overflow: auto;">
+
+        <div style="margin: 10px;" id="show_rwjj">
+
+          <img src="/images/loading2.gif" style="margin-top:130px;margin-left:280px;"/>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    
+
+  </body>
+
+
+
+</html>
