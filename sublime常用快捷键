@@ -1,0 +1,9 @@
+快速多行注释，用ctrl+/
+ctrl + z 撤销上一步操作——后退
+ctrl + shift + z 恢复上一步操作——前进
+ctrl + y 重复上一步操作——前进
+shirt + tab 向前缩进
+
+subline text 用ctrl + b 运行python程序时不能有中文路径！！
+
+google 按住ctrl点网页会在新窗口打开
